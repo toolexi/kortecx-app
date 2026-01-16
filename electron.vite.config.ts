@@ -5,6 +5,16 @@ export default defineConfig({
   main: {},
   preload: {},
   renderer: {
-    plugins: [svelte()]
-  }
+    plugins: [svelte()],
+    server: {
+      proxy: {
+        '/kortecx': {
+          target: 'http://localhost:5678',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/kortecx/, '')
+        }
+      }
+    }
+  },
 })

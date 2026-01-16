@@ -1,0 +1,12 @@
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: kortecx_api
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=false
