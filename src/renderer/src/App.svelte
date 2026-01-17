@@ -27,4 +27,6 @@
   </button>
 
   <div>{data}</div>
+
+  <a href="/mainpage">Go to Main Page</a>
 </div>

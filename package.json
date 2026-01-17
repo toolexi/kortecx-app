@@ -1,10 +1,10 @@
 {
   "name": "kortecx-app",
   "version": "1.0.0",
-  "description": "An Electron application with Svelte and TypeScript",
+  "description": "KortecX: Executable Intelligence Platform",
   "main": "./out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://electron-vite.org",
+  "author": "Jay Reddy",
+  "homepage": "https://kortecx.com",
   "scripts": {
     "format": "prettier --plugin prettier-plugin-svelte --write .",
     "lint": "eslint --cache .",
@@ -23,12 +23,17 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "@sveltejs/kit": "^2.49.5",
     "@xyflow/svelte": "^1.5.0",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
     "electron-updater": "^6.3.9",
+    "framer-motion": "^12.26.2",
+    "monaco-editor": "^0.55.1",
     "rimraf": "^6.1.2",
-    "zod": "^4.3.5",
+    "shadcn-svelte": "^1.1.0",
+    "zod": "^3.25.76",
     "zustand": "^5.0.10"
   },
   "devDependencies": {

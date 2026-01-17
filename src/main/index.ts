@@ -1,9 +1,13 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-// import icon from '../../resources/icon.icns'
+import icon from '../../resources/icon.png?asset'
+import icns from "../../resources/icon.icns?asset"
 
-const icon = join(__dirname, '../../resources/icon.icns')
+if (process.platform === 'darwin') {
+  console.log('Running on macOS')
+}
+
 
 
 function createWindow(): void {
@@ -14,9 +18,11 @@ function createWindow(): void {
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
+    ...(process.platform === "darwin" ? { icns } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+
     }
   })
 
@@ -72,6 +78,7 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
