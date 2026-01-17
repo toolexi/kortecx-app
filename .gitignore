@@ -34,3 +34,5 @@ backend/.venv
 *.sw?
 dist-ssr
 *.local
+
+dist-electron

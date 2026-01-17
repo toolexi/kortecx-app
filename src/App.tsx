@@ -2,9 +2,30 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
+import axios from 'axios'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  // const resp = () => axios.get('/kortecx')
+  // console.log('API Response:', resp.data) 
+
+  // Assuming 'axios' is imported (e.g., import axios from 'axios'; or const axios = require('axios');)
+  const fetchKortecx = () => {
+    axios.get('/kortecx')
+      .then(response => {
+        console.log('Data:', response.data.message); // Access the actual data here
+        // Handle success, update state, etc.
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        // Handle errors (network issues, 404, etc.)
+      });
+  };
+
+  // Call the function to initiate the request
+  fetchKortecx();
+
 
   return (
     <>
@@ -28,6 +49,15 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      {/* <p>
+        <button onClick={async () => {
+          const response = await resp()
+          console.log(response.data.message)
+        }}>
+          Test Backend Request
+        </button>
+      </p> */}
     </>
   )
 }
