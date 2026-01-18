@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import kortecx_logo from './assets/kortecx_icon.png'
-import './App.css'
+import kortecx_logo from '../assets/kortecx_icon.png'
+import '../App.css'
 import axios from 'axios'
+import * as motion from "motion/react-client"
+import { Navbar } from '../components/Navbar'
+
 
 function HomePage() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   const [resp, setResp] = useState<any>(null);
 
@@ -28,15 +31,17 @@ function HomePage() {
     <>
       <div>
         <a href="https://kortecx.com" target="_blank">
-          <img src={kortecx_logo} className="logo react" alt="Kortecx logo" />
+            <motion.img
+              src={kortecx_logo}
+              className="logo react"
+              alt="Kortecx logo"
+              whileHover={{ scale: 1.2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            />
+          {/* <img src={kortecx_logo} className="logo react" alt="Kortecx logo" /> */}
         </a>
       </div>
       <h1>Kortecx : Executable Intelligence Platform</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
 
       <div>
         <button onClick={fetchKortecx}>
@@ -46,7 +51,7 @@ function HomePage() {
       </div>
 
       <div>
-        <a href="/test">Test Page</a>
+        <a href="/dashboard">Dashboard</a>
       </div>
     </>
   )
