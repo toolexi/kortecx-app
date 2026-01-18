@@ -1,63 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
-import axios from 'axios'
+import {  BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Test from './Test.tsx';
+import HomePage from './HomePage.tsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  // const resp = () => axios.get('/kortecx')
-  // console.log('API Response:', resp.data) 
-
-  // Assuming 'axios' is imported (e.g., import axios from 'axios'; or const axios = require('axios');)
-  const fetchKortecx = () => {
-    axios.get('/kortecx')
-      .then(response => {
-        console.log('Data:', response.data.message); // Access the actual data here
-        // Handle success, update state, etc.
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        // Handle errors (network issues, 404, etc.)
-      });
-  };
-
-  // Call the function to initiate the request
-  fetchKortecx();
 
 
   return (
     <>
-      <div>
-        <a href="https://electron-vite.github.io" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-
-      {/* <p>
-        <button onClick={async () => {
-          const response = await resp()
-          console.log(response.data.message)
-        }}>
-          Test Backend Request
-        </button>
-      </p> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/test" element={<Test />} />
+        </Routes>
+      </Router>
+      {/* <div>
+        <a href="/">Home Page</a>
+      </div> */}
     </>
   )
 }
