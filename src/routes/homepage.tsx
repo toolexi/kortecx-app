@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import kortecx_logo from './assets/kortecx_icon.png'
-import './App.css'
+import kortecx_logo from '../assets/kortecx_icon.png'
+import '../App.css'
 import axios from 'axios'
+import { createFileRoute } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/homepage')({
+  component: HomePage,
+})
 
 function HomePage() {
   const [count, setCount] = useState(0)
@@ -28,7 +33,7 @@ function HomePage() {
     <>
       <div>
         <a href="https://kortecx.com" target="_blank">
-          <img src={kortecx_logo} className="logo react" alt="Kortecx logo" />
+          <img src={kortecx_logo} className=" w-8 h-8 m-2" alt="Kortecx logo" />
         </a>
       </div>
       <h1>Kortecx : Executable Intelligence Platform</h1>
