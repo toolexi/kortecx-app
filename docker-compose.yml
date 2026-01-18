@@ -3,7 +3,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: kortecx_api
+    container_name: kortecx_backend
     restart: unless-stopped
     ports:
       - "5678:5678"
