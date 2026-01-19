@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain, shell, View } from 'electron'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
@@ -25,6 +25,7 @@ export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist')
 process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 'public') : RENDERER_DIST
 
 let win: BrowserWindow | null
+const view = new View()
 
 function createWindow() {
   win = new BrowserWindow({
@@ -49,6 +50,9 @@ function createWindow() {
   }
 
   win.webContents.openDevTools()
+  view.setBackgroundColor('red')
+  view.setBounds({ x: 0, y: 0, width: 100, height: 100 })
+  win.contentView.addChildView(view)
 }
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -70,3 +74,9 @@ app.on('activate', () => {
 })
 
 app.whenReady().then(createWindow)
+
+ipcMain.on('perform-google-search', (_event, query: string) => {
+  if (query && query.trim().length > 0) {
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`
+    shell.openExternal(searchUrl)
+  }})
