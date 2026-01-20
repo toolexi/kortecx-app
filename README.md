@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+#  [kortecx](https://kortecx.com): Executable Intelligence Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An Open Source App to build, orchestrate and train data/ai solutions at scale.
 
-Currently, two official plugins are available:
+Run performant and scalable AI solutions locally or on the cloud with zero overhead.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Open Source - Local - Data Driven
+- ✅ Zero Setup - No technical configuration required
+- ✅ Multi-Agent Coordination Manager - Utility to Orchestrate, Govern and Manage complex multi-agent workflows
+- ✅ Train/Finetune LLMs with ease.
+- ✅ MLOps and LLMOps enabled.
+- ✅ Synthesize, Generate and Simulate Data.
+- ✅ OLAP, OLTP, Graph, NoSQL and Vector, Multi-modal  data support. 
+- ✅ Local Deployment
+- ✅ Open Source
+- ✅ Custom Model Support
+- ✅ MCP Integration
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Kortecx is on a mission to generalize the AI accessiblity and enable everyone with capabilities to build custom, domain/niche 
+specific multi-modal LLMs and AI workflows with minimal efforts.
 
-- Configure the top-level `parserOptions` property like this:
+To make the open source version workable for everyone, we made the setup process as simpler as possible.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+In order to fire up the application and start bringing your requirements/ideas to life,
+  - Ensure NodeJS and Python 3.10+ are installed.
+  - Install Docker Desktop
+
+
+### Steps
+
+```sh
+git clone https://github.com/toolexi/kortecx-app.git
+cd kortecx-app
+make start
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+`More features are being added`
