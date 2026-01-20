@@ -1,4 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import InteractiveDots from '../components/Dots'
+import { AiFillQuestionCircle } from "react-icons/ai";
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -7,7 +9,7 @@ export const Route = createFileRoute('/')({
 function Index() {
   return (
     <div className="p-2">
-      <h3 className='text-xl font-bold'>Welcome Home!</h3>
+      <InteractiveDots />
     </div>
   )
 }
