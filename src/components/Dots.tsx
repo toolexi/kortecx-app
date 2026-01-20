@@ -138,6 +138,7 @@ export default function InteractiveDots() {
             <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" items-center font-bold justify-center text-center bg-black bg-opacity-80 px-8 py-6 rounded-lg shadow-lg text-white">
                     <h2 className=" text-4xl ">Welcome to KortecX</h2>
+                    <p>Manage and Orchestrate AI solutions at scale.</p>
                     <br />
                     <button>
                         <a href="/homepage" className=" items-center justify-center text-center bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors">
@@ -155,7 +156,7 @@ export default function InteractiveDots() {
                         </TooltipTrigger>
                         <TooltipContent>
                                 {/* <AiFillQuestionCircle className=" w-8 h-8"/> */}
-                                Kortecx: learn more about us!
+                                Learn more
                         </TooltipContent>
                     </Tooltip>
                 </a>
