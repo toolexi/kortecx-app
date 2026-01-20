@@ -16,9 +16,6 @@ const RootLayout = () => {
     
     {!isHideNavRoute && <Navbar />}
     <Outlet />
-    <div>
-      <a href="/about">About</a>
-    </div>
     <TanStackRouterDevtools />
   </>
   )
