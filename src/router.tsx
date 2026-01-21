@@ -1,12 +1,10 @@
-import { createRouter, createHashHistory } from '@tanstack/react-router'
+import { createRouter, createHashHistory } from "@tanstack/react-router";
 
-
-const history = createHashHistory()
+const history = createHashHistory();
 
 const router = createRouter({
   history,
-  defaultPreload: 'intent',
-})
+  defaultPreload: "intent",
+});
 
-export { router }
-
+export { router };
