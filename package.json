@@ -32,6 +32,7 @@
     "shadcn": "^3.7.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
+    "transformersjs": "^1.1.0",
     "zod": "^4.3.5"
   },
   "devDependencies": {
@@ -39,10 +40,12 @@
     "@types/node": "^25.0.9",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
+    "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",
     "@xyflow/react": "^12.10.0",
+    "autoprefixer": "^10.4.23",
     "electron": "^30.0.1",
     "electron-builder": "^24.13.3",
     "eslint": "^8.57.0",

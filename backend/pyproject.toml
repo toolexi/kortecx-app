@@ -2,7 +2,9 @@
 name = "backend"
 version = "0.1.0"
 description = "KortecX backend library"
-author = "Jay Reddy"
+authors = [
+    { name = "JayReddy", email = "jayachandra.s.reddy@gmail.com" }
+]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -12,4 +14,32 @@ dependencies = [
     "torch>=2.9.1",
     "transformers>=4.57.5",
     "uvicorn>=0.40.0",
+    "qdrant-client>=1.16.2",
+    "neo4j>=6.1.0",
+    "duckdb>=1.4.3",
+    "mcp>=1.25.0",
 ]
+
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "pyinstaller>=6.15.0",
+    "ruff>=0.12.8",
+]
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".venv",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "build",
+    "dist",
+]
+
+
+[tool.black]
+exclude = '\.git|\.ruff_cache|\.venv|\.vscode|__pypackages__|build|dist|.venv'
