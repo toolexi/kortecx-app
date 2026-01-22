@@ -4,16 +4,16 @@ import "../App.css";
 import { Navbar } from "../components/Navbar.tsx";
 
 const RootLayout = () => {
-  const hideNavRoutes = ["/"]; // Hide on root path; add more paths if needed
-  const matchRoute = useMatchRoute();
+  // const hideNavRoutes = ["/"]; // Hide on root path; add more paths if needed
+  // const matchRoute = useMatchRoute();
 
-  const isHideNavRoute = hideNavRoutes.some((route) =>
-    matchRoute({ to: route }),
-  );
+  // const isHideNavRoute = hideNavRoutes.some((route) =>
+  //   matchRoute({ to: route }),
+  // );
 
   return (
     <>
-      {!isHideNavRoute && <Navbar />}
+      {/* {!isHideNavRoute && <Navbar />} */}
       <Outlet />
       <TanStackRouterDevtools />
     </>
