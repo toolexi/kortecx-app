@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import kortecx_logo from "../assets/kortecx_icon.png";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaTwitter } from "react-icons/fa";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { AiFillQuestionCircle } from "react-icons/ai";
 
@@ -32,18 +32,31 @@ export const Navbar = () => {
           <FaGithub className="h-6 w-6 md:h-7 md:w-7" />
         </a>
       </div>
-      <div className="absolute bottom-4 right-4 ">
-        <a href="https://kortecx.com" target="_blank">
-          <Tooltip>
-            <TooltipTrigger>
-              <AiFillQuestionCircle className=" w-8 h-8 bg-orange-900" />
-            </TooltipTrigger>
-            <TooltipContent>
-              {/* <AiFillQuestionCircle className=" w-8 h-8"/> */}
-              Learn more
-            </TooltipContent>
-          </Tooltip>
-        </a>
+      <div className=" gap-4 flex pl-4">
+        <div className="ml-auto">
+          <a
+            href="https://x.com/kortecx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-300 transition-colors"
+            aria-label="twitter"
+          >
+            <FaTwitter className="h-6 w-6 md:h-7 md:w-7" />
+          </a>
+        </div>
+        <div className="absolute bottom-4 right-4 ">
+          <a href="https://kortecx.com" target="_blank">
+            <Tooltip>
+              <TooltipTrigger>
+                <AiFillQuestionCircle className=" w-8 h-8" />
+              </TooltipTrigger>
+              <TooltipContent>
+                {/* <AiFillQuestionCircle className=" w-8 h-8"/> */}
+                Learn more
+              </TooltipContent>
+            </Tooltip>
+          </a>
+        </div>
       </div>
     </div>
   );

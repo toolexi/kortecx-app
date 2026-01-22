@@ -1,6 +1,6 @@
 export default function Dashboard() {
   return (
-    <div className="p-8">
+    <div className="p-2">
       <div className="bg-white rounded-2xl shadow-sm border h-[80vh] flex items-center justify-center">
         <div className="text-center">
           <div className="w-24 h-24 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
