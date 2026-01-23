@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 interface ContentAreaProps {
-  module: "dashboard" | "notebook" | "assets" | "workflow" | "builder";
+  module: "dashboard" | "notebook" | "assets" | "mcp" | "workflow" | "builder";
   item: string;
 }
 
@@ -78,6 +78,24 @@ export default function ContentArea({ module, item }: ContentAreaProps) {
   }
 
   if (module === "builder") {
+    return (
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-8">{item}</h2>
+        <div className="bg-white border rounded-3xl p-12 flex flex-col items-center justify-center min-h-[400px]">
+          <div className="text-7xl mb-6">⚡</div>
+          <h3 className="text-2xl font-medium">Workflow Editor</h3>
+          <p className="text-zinc-500 mt-2">
+            Drag & drop nodes to build {item}
+          </p>
+          <button className="mt-10 px-8 py-4 bg-black text-white rounded-2xl font-medium">
+            Open Visual Builder
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (module === "mcp") {
     return (
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl font-semibold mb-8">{item}</h2>

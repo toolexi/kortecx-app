@@ -12,6 +12,7 @@ import {
   WorkflowIcon,
   BlocksIcon,
   FolderTree,
+  PocketKnife,
 } from "lucide-react";
 import kortecx_logo from "../assets/kortecx_icon.png";
 
@@ -24,7 +25,7 @@ export const Route = createFileRoute("/homepage")({
   component: HomePage,
 });
 
-type Module = "dashboard" | "notebook" | "assets" | "workflow" | "builder";
+type Module = "dashboard" | "notebook" | "assets" | "mcp" | "workflow" | "builder";
 
 const moduleItems: Record<Module, string[]> = {
   dashboard: [
@@ -42,6 +43,7 @@ const moduleItems: Record<Module, string[]> = {
   ],
   builder: ["Builder page", "xyflow"],
   assets: ["tokenize", "upload files", "generate embeddings"],
+  mcp: ["servers", "tools"]
 };
 
 const moduleActions: Record<Module, string[]> = {
@@ -50,6 +52,7 @@ const moduleActions: Record<Module, string[]> = {
   assets: ["vector space", "synthesize datasets"],
   workflow: ["Add Trigger", "Add Action", "Add Condition", "Run", "Deploy"],
   builder: ["add workflow", "create pipeline"],
+  mcp: ["add tool", "create server"]
 };
 
 export default function HomePage() {
@@ -74,7 +77,7 @@ export default function HomePage() {
   };
 
   const addNewItem = () => {
-    const newItemName = `New ${currentModule === "notebook" ? "Notebook" : currentModule === "workflow" ? "Workflow" : currentModule === "assets" ? "Assets" : currentModule === "builder" ? "Builder" : "Dashboard"} ${items[currentModule].length + 1}`;
+    const newItemName = `New ${currentModule === "notebook" ? "Notebook" : currentModule === "workflow" ? "Workflow" : currentModule === "assets" ? "Assets" : currentModule === "builder" ? "Builder"  : currentModule === "mcp" ? "MCP" : "Dashboard"} ${items[currentModule].length + 1}`;
     setItems((prev) => ({
       ...prev,
       [currentModule]: [...prev[currentModule], newItemName],
@@ -153,6 +156,7 @@ export default function HomePage() {
                 "dashboard",
                 "notebook",
                 "assets",
+                "mcp",
                 "workflow",
                 "builder",
               ] as Module[]
@@ -191,6 +195,8 @@ export default function HomePage() {
                     <LayoutDashboard size={28} />
                   ) : mod === "notebook" ? (
                     <NotebookText size={28} />
+                  ) : mod === "mcp" ? (
+                    <PocketKnife size={28} />
                   ) : mod === "assets" ? (
                     <FolderTree size={28} />
                   ) : mod === "workflow" ? (
