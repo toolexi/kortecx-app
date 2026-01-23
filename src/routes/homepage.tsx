@@ -2,7 +2,17 @@ import { useEffect, useState } from "react";
 import "../App.css";
 import axios from "axios"; // if still needed
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Menu,
+  X,
+  LayoutDashboard,
+  NotebookText,
+  WorkflowIcon,
+  BlocksIcon,
+  FolderTree,
+} from "lucide-react";
 import kortecx_logo from "../assets/kortecx_icon.png";
 
 import Notebook from "@/components/Notebook";
@@ -14,7 +24,7 @@ export const Route = createFileRoute("/homepage")({
   component: HomePage,
 });
 
-type Module = "dashboard" | "notebook" | "workflow";
+type Module = "dashboard" | "notebook" | "assets" | "workflow" | "builder";
 
 const moduleItems: Record<Module, string[]> = {
   dashboard: [
@@ -30,12 +40,16 @@ const moduleItems: Record<Module, string[]> = {
     "Email Campaign",
     "Support Ticket",
   ],
+  builder: ["Builder page", "xyflow"],
+  assets: ["tokenize", "upload files", "generate embeddings"],
 };
 
 const moduleActions: Record<Module, string[]> = {
   dashboard: ["Refresh Data", "Add Widget", "Export Report", "Share"],
   notebook: ["New Section", "Insert Image", "Bold", "Italic", "Export PDF"],
+  assets: ["vector space", "synthesize datasets"],
   workflow: ["Add Trigger", "Add Action", "Add Condition", "Run", "Deploy"],
+  builder: ["add workflow", "create pipeline"],
 };
 
 export default function HomePage() {
@@ -60,7 +74,7 @@ export default function HomePage() {
   };
 
   const addNewItem = () => {
-    const newItemName = `New ${currentModule === "notebook" ? "Notebook" : currentModule === "workflow" ? "Workflow" : "Dashboard"} ${items[currentModule].length + 1}`;
+    const newItemName = `New ${currentModule === "notebook" ? "Notebook" : currentModule === "workflow" ? "Workflow" : currentModule === "assets" ? "Assets" : currentModule === "builder" ? "Builder" : "Dashboard"} ${items[currentModule].length + 1}`;
     setItems((prev) => ({
       ...prev,
       [currentModule]: [...prev[currentModule], newItemName],
@@ -134,7 +148,15 @@ export default function HomePage() {
             MODULES
           </div>
           <div className="space-y-1">
-            {(["dashboard", "notebook", "workflow"] as Module[]).map((mod) => (
+            {(
+              [
+                "dashboard",
+                "notebook",
+                "assets",
+                "workflow",
+                "builder",
+              ] as Module[]
+            ).map((mod) => (
               <button
                 key={mod}
                 onClick={() => handleModuleChange(mod)}
@@ -157,12 +179,25 @@ export default function HomePage() {
                   }
                 `}
               >
-                <span className="text-2xl flex-shrink-0">
+                {/* <span className="text-2xl flex-shrink-0">
                   {mod === "dashboard"
                     ? "📊"
                     : mod === "notebook"
                       ? "📝"
                       : "⚡"}
+                </span> */}
+                <span className="text-2xl flex-shrink-0">
+                  {mod === "dashboard" ? (
+                    <LayoutDashboard size={28} />
+                  ) : mod === "notebook" ? (
+                    <NotebookText size={28} />
+                  ) : mod === "assets" ? (
+                    <FolderTree size={28} />
+                  ) : mod === "workflow" ? (
+                    <WorkflowIcon size={28} />
+                  ) : (
+                    <BlocksIcon size={28} />
+                  )}
                 </span>
                 {(isExpanded || isMobileOpen) && (
                   <span className="font-medium whitespace-nowrap">
