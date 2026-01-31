@@ -13,6 +13,7 @@ import {
   BlocksIcon,
   FolderTree,
   PocketKnife,
+  Unplug,
 } from "lucide-react";
 import kortecx_logo from "../assets/kortecx_icon.png";
 
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/homepage")({
   component: HomePage,
 });
 
-type Module = "dashboard" | "notebook" | "assets" | "mcp" | "workflow" | "builder";
+type Module = "dashboard" | "notebook" | "assets" | "mcp" | "workflow" | "builder" | "integrations";
 
 const moduleItems: Record<Module, string[]> = {
   dashboard: [
@@ -43,7 +44,8 @@ const moduleItems: Record<Module, string[]> = {
   ],
   builder: ["Builder page", "xyflow"],
   assets: ["tokenize", "upload files", "generate embeddings"],
-  mcp: ["servers", "tools"]
+  mcp: ["servers", "tools"],
+  integrations: ["email", "slack"]
 };
 
 const moduleActions: Record<Module, string[]> = {
@@ -52,13 +54,14 @@ const moduleActions: Record<Module, string[]> = {
   assets: ["vector space", "synthesize datasets"],
   workflow: ["Add Trigger", "Add Action", "Add Condition", "Run", "Deploy"],
   builder: ["add workflow", "create pipeline"],
-  mcp: ["add tool", "create server"]
+  mcp: ["add tool", "create server"],
+  integrations: ['connect substack', "trigger email"]
 };
 
 export default function HomePage() {
-  const [currentModule, setCurrentModule] = useState<Module>("notebook");
+  const [currentModule, setCurrentModule] = useState<Module>("dashboard");
   const [currentItem, setCurrentItem] = useState<string>(
-    moduleItems.notebook[0],
+    moduleItems.dashboard[0],
   );
   const [items, setItems] = useState<Record<Module, string[]>>(moduleItems);
 
@@ -77,7 +80,7 @@ export default function HomePage() {
   };
 
   const addNewItem = () => {
-    const newItemName = `New ${currentModule === "notebook" ? "Notebook" : currentModule === "workflow" ? "Workflow" : currentModule === "assets" ? "Assets" : currentModule === "builder" ? "Builder"  : currentModule === "mcp" ? "MCP" : "Dashboard"} ${items[currentModule].length + 1}`;
+    const newItemName = `New ${currentModule === "notebook" ? "Notebook" : currentModule === "workflow" ? "Workflow" : currentModule === "assets" ? "Assets" : currentModule === "builder" ? "Builder"  : currentModule === "mcp" ? "MCP" : currentModule === "integrations" ? "integrations" : "Dashboard"} ${items[currentModule].length + 1}`;
     setItems((prev) => ({
       ...prev,
       [currentModule]: [...prev[currentModule], newItemName],
@@ -159,6 +162,7 @@ export default function HomePage() {
                 "mcp",
                 "workflow",
                 "builder",
+                "integrations",
               ] as Module[]
             ).map((mod) => (
               <button
@@ -201,6 +205,8 @@ export default function HomePage() {
                     <FolderTree size={28} />
                   ) : mod === "workflow" ? (
                     <WorkflowIcon size={28} />
+                  ) : mod === "integrations" ? (
+                    <Unplug size={28}/>
                   ) : (
                     <BlocksIcon size={28} />
                   )}
