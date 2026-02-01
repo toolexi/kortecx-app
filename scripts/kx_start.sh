@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ ! -x kx_start.sh ]; then
+if [ ! -x scripts/kx_start.sh ]; then
   echo "Making kx_start.sh executable."
-  chmod +x kx_start.sh
+  chmod +x scripts/kx_start.sh
 fi
 
 
